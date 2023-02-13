@@ -1,4 +1,8 @@
 package org.petShop.entities;
 
-public class Cat {
+import javax.persistence.Column;
+
+public class Cat extends Animal {
+    @Column(name="chip_id")
+    private String chipId;
 }
