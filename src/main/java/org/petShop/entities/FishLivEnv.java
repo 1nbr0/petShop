@@ -1,4 +1,5 @@
 package org.petShop.entities;
 
-public class FishLivEnv {
+public enum FishLivEnv {
+    FRESH_WATER, SEA_WATER
 }

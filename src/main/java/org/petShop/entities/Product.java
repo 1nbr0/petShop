@@ -1,6 +1,7 @@
 package org.petShop.entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name="Product")
@@ -16,8 +17,14 @@ public class Product {
     @Column(name="label")
     private String label;
 
+    @Column(name="type")
+    private ProdType type;
+
     @Column(name="price")
     private Double price;
+
+    @ManyToMany(mappedBy = "products")
+    private Set<PetStore> petStores;
 
     public Product() {
     }
@@ -54,13 +61,31 @@ public class Product {
         this.price = price;
     }
 
+    public ProdType getType() {
+        return type;
+    }
+
+    public void setType(ProdType type) {
+        this.type = type;
+    }
+
+    public Set<PetStore> getPetStores() {
+        return petStores;
+    }
+
+    public void setPetStores(Set<PetStore> petStores) {
+        this.petStores = petStores;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
                 "id=" + id +
                 ", code='" + code + '\'' +
                 ", label='" + label + '\'' +
+                ", type=" + type +
                 ", price=" + price +
+                ", petStores=" + petStores +
                 '}';
     }
 }

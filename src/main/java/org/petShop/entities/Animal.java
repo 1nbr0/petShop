@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name="Animal")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Animal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

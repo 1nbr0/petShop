@@ -1,4 +1,5 @@
 package org.petShop.entities;
 
-public class ProdType {
+public enum ProdType {
+    FOOD, ACCESSORY, CLEANING
 }
