@@ -1,6 +1,7 @@
 package org.petShop.entities;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -17,6 +18,8 @@ public class Product {
     @Column(name="label")
     private String label;
 
+
+    @Enumerated( EnumType.STRING )
     @Column(name="type")
     private ProdType type;
 
@@ -24,9 +27,16 @@ public class Product {
     private Double price;
 
     @ManyToMany(mappedBy = "products")
-    private Set<PetStore> petStores;
+    private Set<PetStore> petStores = new HashSet<>();
 
     public Product() {
+    }
+
+    public Product(String code, String label, ProdType type, Double price) {
+        this.code = code;
+        this.label = label;
+        this.type = type;
+        this.price = price;
     }
 
     public Long getId() {

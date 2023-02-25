@@ -18,7 +18,16 @@ public class Animal {
     @Column(name="color")
     private String color;
 
+    @ManyToOne
+    @JoinColumn(name="PETSTORE_ID")
+    private PetStore petStore;
+
     public Animal() {
+    }
+
+    public Animal(LocalDate birth, String color) {
+        this.birth = birth;
+        this.color = color;
     }
 
     public Long getId() {
@@ -45,12 +54,21 @@ public class Animal {
         this.color = color;
     }
 
+    public PetStore getPetStore() {
+        return petStore;
+    }
+
+    public void setPetStore(PetStore petStore) {
+        this.petStore = petStore;
+    }
+
     @Override
     public String toString() {
         return "Animal{" +
                 "id=" + id +
                 ", birth=" + birth +
                 ", color='" + color + '\'' +
+                ", petStore=" + petStore +
                 '}';
     }
 }

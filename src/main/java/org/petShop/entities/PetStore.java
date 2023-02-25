@@ -1,6 +1,7 @@
 package org.petShop.entities;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -16,17 +17,31 @@ public class PetStore {
 
     @Column(name="manager_name")
     private String managerName;
-    @ManyToMany
+
+    @OneToMany(mappedBy = "petStore", cascade = CascadeType.ALL)
+    private Set<Animal> animals = new HashSet<>();
+
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name="PET_STO_PROD",
             joinColumns= @JoinColumn(name="ID_PET_STO", referencedColumnName="ID"),
             inverseJoinColumns= @JoinColumn(name="ID_PROD", referencedColumnName="ID")
     )
-    private Set<Product> products;
+    private Set<Product> products=  new HashSet<>();
 
     @OneToOne
     private Address address;
 
     public PetStore() {
+    }
+
+    public PetStore(String name) {
+        this.name = name;
+    }
+
+    public PetStore(String name, String managerName, Address address) {
+        this.name = name;
+        this.managerName = managerName;
+        this.address = address;
     }
 
     public Long getId() {
@@ -69,6 +84,14 @@ public class PetStore {
         this.address = address;
     }
 
+    public Set<Animal> getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(Set<Animal> animals) {
+        this.animals = animals;
+    }
+
     @Override
     public String toString() {
         return "PetStore{" +
@@ -76,6 +99,7 @@ public class PetStore {
                 ", name='" + name + '\'' +
                 ", managerName='" + managerName + '\'' +
                 ", products=" + products +
+                ", animals=" + animals +
                 ", address=" + address +
                 '}';
     }
