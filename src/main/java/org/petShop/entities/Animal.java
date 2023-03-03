@@ -25,9 +25,10 @@ public class Animal {
     public Animal() {
     }
 
-    public Animal(LocalDate birth, String color) {
+    public Animal(LocalDate birth, String color, PetStore petStore) {
         this.birth = birth;
         this.color = color;
+        this.petStore = petStore;
     }
 
     public Long getId() {
@@ -68,7 +69,7 @@ public class Animal {
                 "id=" + id +
                 ", birth=" + birth +
                 ", color='" + color + '\'' +
-                ", petStore=" + petStore +
+                ", petStoreId=" + petStore.getId() +
                 '}';
     }
 }

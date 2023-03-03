@@ -98,8 +98,8 @@ public class PetStore {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", managerName='" + managerName + '\'' +
-                ", products=" + products +
                 ", animals=" + animals +
+                ", products=" + products +
                 ", address=" + address +
                 '}';
     }

@@ -14,8 +14,8 @@ public class Cat extends Animal {
     public Cat() {
     }
 
-    public Cat(LocalDate birth, String color, String chipId) {
-        super(birth, color);
+    public Cat(LocalDate birth, String color, PetStore petStore, String chipId) {
+        super(birth, color, petStore);
         this.chipId = chipId;
     }
 

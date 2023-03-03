@@ -57,15 +57,15 @@ public class Main {
         em.persist(productCleaningCat3);
 
         // Animal
-        Cat cat1 = new Cat(LocalDate.now(), "Noir", "001");
-        Cat cat2 = new Cat(LocalDate.now(), "Roux", "002");
-        Cat cat3 = new Cat(LocalDate.now(), "Blanc", "003");
-        Fish fishLiveFresh1 = new Fish(LocalDate.now(), "Rouge", FishLivEnv.FRESH_WATER);
-        Fish fishLiveFresh2 = new Fish(LocalDate.now(), "Jaune", FishLivEnv.FRESH_WATER);
-        Fish fishLiveFresh3 = new Fish(LocalDate.now(), "Argent", FishLivEnv.FRESH_WATER);
-        Fish fishLiveSea1 = new Fish(LocalDate.now(),"Argent" , FishLivEnv.SEA_WATER);
-        Fish fishLiveSea2 = new Fish(LocalDate.now(),"Noir" , FishLivEnv.SEA_WATER);
-        Fish fishLiveSea3 = new Fish(LocalDate.now(),"blanc" , FishLivEnv.SEA_WATER);
+        Cat cat1 = new Cat(LocalDate.now(), "Noir", petStore1, "001");
+        Cat cat2 = new Cat(LocalDate.now(), "Roux", petStore2, "002");
+        Cat cat3 = new Cat(LocalDate.now(), "Blanc", petStore3,"003");
+        Fish fishLiveFresh1 = new Fish(LocalDate.now(), "Rouge", petStore1, FishLivEnv.FRESH_WATER);
+        Fish fishLiveFresh2 = new Fish(LocalDate.now(), "Jaune", petStore2, FishLivEnv.FRESH_WATER);
+        Fish fishLiveFresh3 = new Fish(LocalDate.now(), "Argent", petStore3,FishLivEnv.FRESH_WATER);
+        Fish fishLiveSea1 = new Fish(LocalDate.now(),"Argent" , petStore1, FishLivEnv.SEA_WATER);
+        Fish fishLiveSea2 = new Fish(LocalDate.now(),"Noir", petStore2, FishLivEnv.SEA_WATER);
+        Fish fishLiveSea3 = new Fish(LocalDate.now(),"blanc", petStore3, FishLivEnv.SEA_WATER);
 
         em.persist(cat1);
         em.persist(cat2);
@@ -94,9 +94,6 @@ public class Main {
         petStore2.getAnimals().add(cat2);
         petStore2.getAnimals().add(fishLiveFresh2);
         petStore2.getAnimals().add(fishLiveSea2);
-        petStore2.getAnimals().add(fishLiveSea3);
-        petStore2.getAnimals().add(fishLiveFresh3);
-        petStore2.getAnimals().add(fishLiveSea1);
         em.persist(petStore2);
 
         // Animalerie 3
@@ -104,9 +101,8 @@ public class Main {
         petStore3.getProducts().add(productAccessoryCat1);
         petStore3.getProducts().add(productCleaningCat3);
         petStore3.getAnimals().add(cat3);
-        petStore3.getAnimals().add(cat2);
-        petStore3.getAnimals().add(cat1);
         petStore3.getAnimals().add(fishLiveFresh3);
+        petStore3.getAnimals().add(fishLiveSea3);
         em.persist(petStore3);
 
 

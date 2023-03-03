@@ -13,10 +13,11 @@ public class Fish extends Animal {
     public Fish() {
     }
 
-    public Fish(LocalDate birth, String color, FishLivEnv livingEnv) {
-        super(birth, color);
+    public Fish(LocalDate birth, String color, PetStore petStore, FishLivEnv livingEnv) {
+        super(birth, color, petStore);
         this.livingEnv = livingEnv;
     }
+
     public FishLivEnv getLivingEnv() {
         return livingEnv;
     }
