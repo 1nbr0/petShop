@@ -112,7 +112,7 @@ public class Main {
         PetStore petStoreJardiland = em.find(PetStore.class, 2L);
         if(petStoreJardiland != null) {
             System.out.println("__________________________________________________________________________");
-            System.out.println("| Liste des animaux présent dans l'animalerie " + petStoreJardiland.getName() +" situé à " + petStoreJardiland.getAddress().getCity());
+            System.out.println("| Liste des animaux présent dans l'animalerie " + petStoreJardiland.getName() +" située à " + petStoreJardiland.getAddress().getCity());
             System.out.println("|  ------------------------------------------------------------------------");
             for(Animal item : petStoreJardiland.getAnimals()) {
                 System.out.println("| " + item.toString());
